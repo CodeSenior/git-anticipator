@@ -2,10 +2,10 @@
   "name": "git-conflict-anticipator",
   "displayName": "git-conflict-anticipator",
   "description": "Anticipates Git conflicts between remote and local branches.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "hosmann",
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.100.0"
   },
   "categories": [
     "SCM Providers",
