@@ -1,0 +1,149 @@
+{
+  "name": "git-conflict-anticipator",
+  "displayName": "git-conflict-anticipator",
+  "description": "Anticipates Git conflicts between remote and local branches.",
+  "version": "1.0.0",
+  "publisher": "hosmann",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "SCM Providers",
+    "Visualization",
+    "AI",
+    "Other"
+  ],
+  "activationEvents": [
+  "workspaceContains:.git",
+  "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "gitConflictAnticipator",
+          "title": "Git Conflict Anticipator",
+          "icon": "$(git-merge)"
+        }
+      ]
+    },
+    "views": {
+      "gitConflictAnticipator": [
+        {
+          "id": "gitConflictFiles",
+          "name": "Conflicts Files",
+          "type": "tree"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "extension.checkConflicts",
+        "title": "Check Git Conflicts",
+        "category": "Git Tools"
+      },
+      {
+        "command": "gitConflictAnticipator.refreshTree",
+        "title": "Actualiser",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "gitConflictAnticipator.setBranch",
+        "title": "Définir la branche cible",
+        "icon": "$(git-branch)"
+      },
+      {
+        "command": "gitConflictAnticipator.openFile",
+        "title": "Open file"
+      },
+      {
+        "command": "gitConflictAnticipator.enable",
+        "title": "Enable Git Conflict Anticipator"
+      },
+      {
+        "command": "gitConflictAnticipator.disable",
+        "title": "Desable Git Conflict Anticipator"
+      },
+      {
+        "command": "gitConflictAnticipator.showDiagnostics",
+        "title": "Git Conflict Anticipator: Afficher le panneau"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "gitConflictAnticipator.refreshTree",
+          "when": "view == gitConflictFiles",
+          "group": "navigation"
+        },
+        {
+          "command": "gitConflictAnticipator.setBranch",
+          "when": "view == gitConflictFiles",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "gitConflictAnticipator.openFile",
+          "when": "view == gitConflictFiles && viewItem == conflictFile"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Git Conflict Anticipator",
+      "properties": {
+        "gitConflictAnticipator.targetBranch": {
+          "type": "string",
+          "default": "main",
+          "description": "Branche cible pour la détection des conflits"
+        },
+        "gitConflictAnticipator.autoRefresh": {
+          "type": "boolean",
+          "default": true,
+          "description": "Actualisation automatique lors des modifications de fichiers"
+        },
+        "gitConflictAnticipator.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Activer/désactiver l'extension"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "pnpm run package",
+    "compile": "pnpm run check-types && pnpm run lint && node esbuild.js",
+    "watch": "npm-run-all -p watch:*",
+    "watch:esbuild": "node esbuild.js --watch",
+    "watch:tsc": "tsc --noEmit --watch --project tsconfig.json",
+    "package": "pnpm run check-types && pnpm run lint && node esbuild.js --production",
+    "compile-tests": "tsc -p . --outDir out",
+    "watch-tests": "tsc -p . -w --outDir out",
+    "pretest": "pnpm run compile-tests && pnpm run compile && pnpm run lint",
+    "check-types": "tsc --noEmit",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.100.0",
+    "@typescript-eslint/eslint-plugin": "^8.31.1",
+    "@typescript-eslint/parser": "^8.31.1",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.5.2",
+    "esbuild": "^0.25.3",
+    "eslint": "^9.25.1",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.8.3"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "esbuild"
+    ],
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  }
+}

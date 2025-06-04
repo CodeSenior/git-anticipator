@@ -1,0 +1,77 @@
+import * as vscode from 'vscode';
+// Get system language
+const systemLanguage = vscode.env.language;
+
+// Translation function
+export function translate(text: string): string {
+  if (systemLanguage.startsWith('fr')) {
+    const translations: { [key: string]: string } = {
+      'Executing:': 'Exécution:',
+      'Success:': 'Succès:',
+      'Git command failed:': 'Échec de la commande Git:',
+      'Error message:': 'Message d\'erreur:',
+      'Error code:': 'Code d\'erreur:',
+      'Stderr:': 'Erreur standard:',
+      'Normalizing branch name:': 'Normalisation du nom de branche:',
+      'Found local branch:': 'Branche locale trouvée:',
+      'Found remote branch:': 'Branche distante trouvée:',
+      'Found commit/tag:': 'Commit/tag trouvé:',
+      'Found similar branch:': 'Branche similaire trouvée:',
+      'Branch not found anywhere': 'Branche introuvable',
+      'Detecting conflicts between': 'Détection des conflits entre',
+      'from base': 'depuis la base',
+      'Files with differences:': 'Fichiers avec des différences:',
+      'Checking real conflicts for:': 'Vérification des conflits réels pour:',
+      'File creation/deletion conflict for': 'Conflit de création/suppression pour',
+      'Same content in both branches for': 'Même contenu dans les deux branches pour',
+      'no conflict': 'pas de conflit',
+      'Only target branch changed': 'Seule la branche cible a changé',
+      'Only current branch changed': 'Seule la branche courante a changé',
+      'Merge test confirms conflict for': 'Test de fusion confirme le conflit pour',
+      'Both branches changed': 'Les deux branches ont changé',
+      'differently, likely conflict': 'différemment, conflit probable',
+      'Error checking real conflicts for': 'Erreur lors de la vérification des conflits pour',
+      'Checking conflicts for:': 'Vérification des conflits pour:',
+      'Workspace:': 'Espace de travail:',
+      'Target branch:': 'Branche cible:',
+      'Document is not a file, skipping': 'Le document n\'est pas un fichier, ignoré',
+      'Not a git repository:': 'N\'est pas un dépôt Git:',
+      'Relative path:': 'Chemin relatif:',
+      'Current branch:': 'Branche courante:',
+      'Could not get current branch': 'Impossible d\'obtenir la branche courante',
+      'Target branch does not exist': 'La branche cible n\'existe pas',
+      'Already on target branch, no conflicts possible': 'Déjà sur la branche cible, pas de conflits possibles',
+      'Could not find merge base between': 'Impossible de trouver la base de fusion entre',
+      'Alternative merge base query also failed': 'La requête alternative de base de fusion a également échoué',
+      'Using alternative merge base:': 'Utilisation de la base de fusion alternative:',
+      'Merge base:': 'Base de fusion:',
+      'File not in conflict list': 'Fichier non dans la liste des conflits',
+      'CONFLICT CONFIRMED for': 'CONFLIT CONFIRMÉ pour',
+      'Applied conflict decorations to entire file': 'Décorations de conflit appliquées au fichier entier',
+      'Setting up workspace watcher for:': 'Configuration du surveillant d\'espace de travail pour:',
+      'Cannot watch non-git directory:': 'Impossible de surveiller un répertoire non-git:',
+      'File changed:': 'Fichier modifié:',
+      'Error handling file change:': 'Erreur lors du traitement du changement de fichier:',
+      'File created:': 'Fichier créé:',
+      'Error handling file creation:': 'Erreur lors du traitement de la création de fichier:',
+      'File deleted:': 'Fichier supprimé:',
+      'Workspace watcher setup complete': 'Configuration du surveillant d\'espace de travail terminée',
+      '=== DEBUG: Available branches ===': '=== DÉBOGAGE: Branches disponibles ===',
+      'Local branches:': 'Branches locales:',
+      'Remote branches:': 'Branches distantes:',
+      'All refs:': 'Toutes les références:',
+      '=== END DEBUG ===': '=== FIN DU DÉBOGAGE ===',
+      'View conflicts': 'Voir les conflits',
+      'Conflicts detected in': 'Conflits détectés dans',
+      'with branch': 'avec la branche',
+      'Refreshing all conflicts...': 'Actualisation des conflits...',
+      'Manual refresh triggered': 'Actualisation manuelle déclenchée',
+      'Enter target branch name for conflict detection': 'Entrez le nom de la branche cible pour la détection des conflits',
+      'ex: main, develop, master': 'ex: main, develop, master',
+      'Git Conflict Anticipator enabled': 'Git Conflict Anticipator activé',
+      'Git Conflict Anticipator disabled': 'Git Conflict Anticipator désactivé'
+    };
+    return translations[text] || text;
+  }
+  return text;
+}
