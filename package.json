@@ -2,7 +2,7 @@
   "name": "git-conflict-anticipator",
   "displayName": "Git Anticipator", 
   "description": "Anticipates Git conflicts between remote and local branches.",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "publisher": "GitAnticipator",
   "icon": "images/git-conflict-anticipator.png",
   "galleryBanner": {
@@ -10,7 +10,7 @@
     "theme": "dark"
   },
   "engines": {
-    "vscode": "^1.100.0"
+    "vscode": "^1.80.0"
   },
   "categories": [
     "SCM Providers",
@@ -133,7 +133,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/vscode": "^1.100.0",
+    "@types/vscode": "^1.80.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
     "@vscode/test-cli": "^0.0.10",
