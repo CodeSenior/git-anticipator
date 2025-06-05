@@ -1,8 +1,8 @@
 {
   "name": "git-conflict-anticipator",
-  "displayName": "Git Anticipator", 
+  "displayName": "Git Anticipator",
   "description": "Anticipates Git conflicts between remote and local branches.",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "publisher": "GitAnticipator",
   "icon": "images/git-conflict-anticipator.png",
   "galleryBanner": {
@@ -19,8 +19,8 @@
     "Other"
   ],
   "activationEvents": [
-  "workspaceContains:.git",
-  "onStartupFinished"
+    "workspaceContains:.git",
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
