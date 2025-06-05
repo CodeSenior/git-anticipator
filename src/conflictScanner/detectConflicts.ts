@@ -22,7 +22,7 @@ export async function detectConflicts(targetBranch: string): Promise<Set<string>
     await execAsync(`git rev-parse --verify ${targetBranch}`);
 
     // Récupère les fichiers modifiés uniquement sur la branche courante
-    const { stdout: currentChanges } = await exec(`git diff --name-only ${targetBranch}..${currentBranch}`);
+    const { stdout: currentChanges } = await execAsync(`git diff --name-only ${targetBranch}..${currentBranch}`);
 
     // Récupère les fichiers modifiés uniquement sur la branche cible
     const { stdout: targetChanges } = await execAsync(`git diff --name-only ${currentBranch}..${targetBranch}`);

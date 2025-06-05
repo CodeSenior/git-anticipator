@@ -2,7 +2,7 @@
   "name": "git-conflict-anticipator",
   "displayName": "Git Anticipator",
   "description": "Anticipates Git conflicts between remote and local branches.",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "publisher": "GitAnticipator",
   "icon": "images/git-conflict-anticipator.png",
   "galleryBanner": {
@@ -12,6 +12,10 @@
   "engines": {
     "vscode": "^1.80.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeSenior/git-anticipator"
+  },
   "categories": [
     "SCM Providers",
     "Visualization",
@@ -19,6 +23,8 @@
   ],
   "keywords": [
     "git",
+    "CI/CD",
+    "Cursor",
     "merge conflicts",
     "conflict",
     "vcs",
@@ -26,7 +32,17 @@
     "version control",
     "team workflow",
     "pull",
-    "merge"
+    "merge",
+    "agenticAI",
+    "aider",
+    "anthropic",
+    "ai",
+    "automation",
+    "autonomous coding",
+    "chatgpt",
+    "Claude",
+    "devcode",
+    "completion"
   ],
   "activationEvents": [
     "workspaceContains:.git",
