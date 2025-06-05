@@ -2,7 +2,7 @@
   "name": "git-conflict-anticipator",
   "displayName": "Git Anticipator",
   "description": "Anticipates Git conflicts between remote and local branches.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "publisher": "GitAnticipator",
   "icon": "images/git-conflict-anticipator.png",
   "galleryBanner": {
