@@ -1,11 +1,12 @@
 import * as vscode from 'vscode';
 import { ConflictFilesProvider } from './treeView';
-import { checkConflictForDocument, clearDecorations, watchWorkspace } from './watcher';
+import { clearDecorations, watchWorkspace } from './watcher';
 import { getConflictedFiles } from './conflictDetector';
 import { translate } from './language';
 // import { DiagnosticPanel } from './webview/diagnosticPanel';
-import { exec } from 'child_process';
 import { hasPotentialConflicts } from './conflictScanner/detectConflicts';
+import { checkConflictForDocument } from './conflictScanner/checkConflictForDocument';
+import { checkGitConflicts } from './conflictScanner/checkGitConflict';
 
 let conflictFilesProvider: ConflictFilesProvider;
 let treeView: vscode.TreeView<vscode.TreeItem>;
@@ -15,22 +16,7 @@ let isExtensionEnabled: boolean = true;
 
 const systemLanguage = vscode.env.language;
 
-/**
- * Vérifie s'il y a des conflits Git dans le dépôt donné.
- */
-function checkGitConflicts(repoPath: string): Promise<boolean> {
-	return new Promise((resolve) => {
-		exec('git diff --name-only --diff-filter=U', { cwd: repoPath }, (err, stdout) => {
-			if (err) {
-				console.error('Erreur lors de la vérification des conflits Git :', err);
-				resolve(false);
-			} else {
-				const hasConflicts = stdout.trim().length > 0;
-				resolve(hasConflicts);
-			}
-		});
-	});
-}
+ 
 
 /**
  * Affiche une alerte si des conflits Git sont détectés.
