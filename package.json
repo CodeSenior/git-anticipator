@@ -15,8 +15,18 @@
   "categories": [
     "SCM Providers",
     "Visualization",
-    "AI",
     "Other"
+  ],
+  "keywords": [
+  "git",
+  "merge conflicts",
+  "conflict",
+  "vcs",
+  "real-time",
+    "version control",
+    "team workflow",
+    "pull",
+    "merge"
   ],
   "activationEvents": [
     "workspaceContains:.git",
