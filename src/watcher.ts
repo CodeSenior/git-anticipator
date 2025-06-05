@@ -565,14 +565,14 @@ export function watchWorkspace(wsFolderPath: string, targetBranch: string, confl
     }
   });
 
-  // // Écouter les changements dans le dossier .git pour actualiser les branches
-  // const gitDirWatcher = vscode.workspace.createFileSystemWatcher('.git/**/*');
-  // gitDirWatcher.onDidChange(async (uri) => {
-  //   console.log(translate(`Git directory changed: ${uri.fsPath}`));
-  //   // Actualiser les branches
-  //   const branches = executeGitCommand('git branch -a', wsFolderPath);
-  //   console.log(translate('Available branches:') + branches);
-  // });
+  // Écouter les changements dans le dossier .git pour actualiser les branches
+  const gitDirWatcher = vscode.workspace.createFileSystemWatcher('.git/**/*');
+  gitDirWatcher.onDidChange(async (uri) => {
+    console.log(translate(`Git directory changed: ${uri.fsPath}`));
+    // Actualiser les branches
+    const branches = executeGitCommand('git branch -a', wsFolderPath);
+    console.log(translate('Available branches:') + branches);
+  });
 
   const showConflictPanel = vscode.commands.registerCommand('extension.showConflictPanel', async () => {
     const targetBranch = 'main'; // Ou récupéré dynamiquement depuis la config

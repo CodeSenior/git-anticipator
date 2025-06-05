@@ -1,21 +1,52 @@
 {
   "name": "git-conflict-anticipator",
-  "displayName": "git-conflict-anticipator",
+  "displayName": "Git Anticipator",
   "description": "Anticipates Git conflicts between remote and local branches.",
-  "version": "1.0.0",
-  "publisher": "hosmann",
+  "version": "1.1.1",
+  "publisher": "GitAnticipator",
+  "icon": "images/git-conflict-anticipator.png",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
   "engines": {
-    "vscode": "^1.90.0"
+    "vscode": "^1.80.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/CodeSenior/git-anticipator"
   },
   "categories": [
     "SCM Providers",
     "Visualization",
-    "AI",
     "Other"
   ],
+  "keywords": [
+    "git",
+    "CI/CD",
+    "Cursor",
+    "merge conflicts",
+    "conflict",
+    "vcs",
+    "real-time",
+    "version control",
+    "team workflow",
+    "pull",
+    "merge",
+    "agenticAI",
+    "aider",
+    "anthropic",
+    "ai",
+    "automation",
+    "autonomous coding",
+    "chatgpt",
+    "Claude",
+    "devcode",
+    "completion"
+  ],
   "activationEvents": [
-  "workspaceContains:.git",
-  "onStartupFinished"
+    "workspaceContains:.git",
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {
@@ -24,7 +55,7 @@
         {
           "id": "gitConflictAnticipator",
           "title": "Git Conflict Anticipator",
-          "icon": "$(git-merge)"
+          "icon": "images/git-compare.svg"
         }
       ]
     },
@@ -51,7 +82,7 @@
       {
         "command": "gitConflictAnticipator.setBranch",
         "title": "Définir la branche cible",
-        "icon": "$(git-branch)"
+        "icon": "images/request_8906968.png"
       },
       {
         "command": "gitConflictAnticipator.openFile",
@@ -128,7 +159,7 @@
   "devDependencies": {
     "@types/mocha": "^10.0.10",
     "@types/node": "20.x",
-    "@types/vscode": "^1.100.0",
+    "@types/vscode": "^1.80.0",
     "@typescript-eslint/eslint-plugin": "^8.31.1",
     "@typescript-eslint/parser": "^8.31.1",
     "@vscode/test-cli": "^0.0.10",

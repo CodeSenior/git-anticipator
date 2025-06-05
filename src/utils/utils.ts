@@ -1,6 +1,9 @@
 import { executeGitCommand } from "../command/command";
 import { exec } from 'child_process';
 import * as util from 'util';
+import { promisify } from "util";
+import * as vscode from 'vscode';
+
 const execAsync = util.promisify(exec);
 
 /**
@@ -47,9 +50,26 @@ export function normalizeBranchName(branchName: string, wsFolderPath: string): s
 }
 
 
+
 export async function isGitRepo(): Promise<boolean> {
   try {
-    await execAsync('git rev-parse --is-inside-work-tree');
+    const gitExtension = vscode.extensions.getExtension('vscode.git')?.exports;
+    const git = gitExtension?.getAPI(1);
+    
+    if (git && git.repositories.length > 0) {
+      return true;
+    }
+    
+    // Fallback vers la méthode manuelle
+    const workspaceFolder = vscode.workspace.workspaceFolders?.[0];
+    if (!workspaceFolder) {
+      return false;
+    }
+    
+    const execAsync = promisify(exec);
+    await execAsync('git rev-parse --is-inside-work-tree', { 
+      cwd: workspaceFolder.uri.fsPath 
+    });
     return true;
   } catch {
     return false;
