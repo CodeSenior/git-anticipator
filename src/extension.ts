@@ -3,7 +3,7 @@ import { ConflictFilesProvider } from './treeView';
 import { checkConflictForDocument, clearDecorations, watchWorkspace } from './watcher';
 import { getConflictedFiles } from './conflictDetector';
 import { translate } from './language';
-import { DiagnosticPanel } from './webview/diagnosticPanel';
+// import { DiagnosticPanel } from './webview/diagnosticPanel';
 import { exec } from 'child_process';
 import { hasPotentialConflicts } from './conflictScanner/detectConflicts';
 
@@ -78,7 +78,7 @@ export function activate(context: vscode.ExtensionContext) {
   conflictFilesProvider = new ConflictFilesProvider(targetBranch);
 
   // Create Diagnostic Panel
-  DiagnosticPanel.createOrShow(context.extensionUri, []);
+  /*DiagnosticPanel.createOrShow(context.extensionUri, []);*/
   
   // Register TreeView
   treeView = vscode.window.createTreeView('gitConflictFiles', {

@@ -29,7 +29,7 @@
         {
           "id": "gitConflictAnticipator",
           "title": "Git Conflict Anticipator",
-          "icon": "$(git-merge)"
+          "icon": "images/git-compare.svg"
         }
       ]
     },
@@ -56,7 +56,7 @@
       {
         "command": "gitConflictAnticipator.setBranch",
         "title": "Définir la branche cible",
-        "icon": "$(git-branch)"
+        "icon": "images/request_8906968.png"
       },
       {
         "command": "gitConflictAnticipator.openFile",

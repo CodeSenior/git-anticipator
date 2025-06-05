@@ -55,7 +55,7 @@ export class ConflictFilesProvider implements vscode.TreeDataProvider<ConflictFi
         vscode.TreeItemCollapsibleState.None,
         'branchInfo'
       );
-      branchInfo.iconPath = new vscode.ThemeIcon('git-branch');
+      branchInfo.iconPath = vscode.Uri.file(path.join(__dirname, '..', 'images', 'merge_8906964.png'));
       branchInfo.tooltip = `Conflicts detected compared to the branch: ${this.targetBranch}`;
       items.push(branchInfo);
 
@@ -66,7 +66,7 @@ export class ConflictFilesProvider implements vscode.TreeDataProvider<ConflictFi
           vscode.TreeItemCollapsibleState.None,
           'noConflict'
         );
-        noConflicts.iconPath = new vscode.ThemeIcon('check');
+        noConflicts.iconPath = vscode.Uri.file(path.join(__dirname, '..', 'images', 'check-mark_5290119.png'));
         items.push(noConflicts);
       } else {
         this.conflictedFiles.forEach(filePath => {
